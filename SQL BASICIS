@@ -1,0 +1,58 @@
+create database ex;
+use ex;
+-- created a database and and use that database
+-- create table and enter insert the variables
+CREATE TABLE student (
+    studentid INT, 
+    student_name VARCHAR(100), 
+    mark1 INT, 
+    mark2 INT, 
+    mark3 INT, 
+    mark4 INT, 
+    grade VARCHAR(10)   -- Initially created as 'grade'
+);
+-- insert the value of the tables
+INSERT INTO student VALUES 
+(1, 'Arun', 85, 78, 90, 88, 'A'),
+(2, 'Bala', 70, 65, 80, 75, 'B'),
+(3, 'Charan', 60, 55, 70, 65, 'C'),
+(4, 'Deepak', 90, 88, 92, 85, 'A'),
+(5, 'Elango', 75, 72, 78, 80, 'B'),
+(6, 'Farhan', 82, 85, 88, 90, 'A'),
+(7, 'Gokul', 55, 60, 50, 65, 'D'),
+(8, 'Hari', 95, 92, 96, 98, 'A+'),
+(9, 'Irfan', 68, 70, 72, 75, 'B'),
+(10, 'Jeeva', 88, 85, 89, 87, 'A');
+
+-- alter the column name grade to student_grade
+
+ALTER TABLE student CHANGE COLUMN grade student_grade VARCHAR(10);
+
+-- adding a new column student sportss
+
+ALTER TABLE student ADD COLUMN student_sports VARCHAR(50);
+
+-- update a value for sports 
+
+UPDATE student SET student_sports = 'Cricket' WHERE studentid IN (1, 4, 7);
+UPDATE student SET student_sports = 'Volleyball' WHERE studentid IN (2, 5, 8);
+UPDATE student SET student_sports = 'Football' WHERE studentid IN (3, 6, 9);
+UPDATE student SET student_sports = 'Badminton' WHERE studentid = 10;
+
+-- fetching the id 
+
+SELECT * FROM student WHERE studentid > 5;
+
+-- droping a mark 4 column
+
+ALTER TABLE student DROP COLUMN mark4;
+
+-- alter a student id into primary key
+ALTER TABLE student ADD PRIMARY KEY (studentid);
+
+
+
+
+
+
+
